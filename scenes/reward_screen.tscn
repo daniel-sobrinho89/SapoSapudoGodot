@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/reward_screen.gd" id="1_reward"]
+
+[node name="RewardScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_reward")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07, 0.1, 0.08, 1)
+
+[node name="Central" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Conteudo" type="VBoxContainer" parent="Central"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Titulo" type="Label" parent="Central/Conteudo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "RECOMPENSA DA FASE 1"
+horizontal_alignment = 1
+
+[node name="Ataque" type="Button" parent="Central/Conteudo"]
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+text = "+ ATAQUE"
+
+[node name="Coracao" type="Button" parent="Central/Conteudo"]
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+text = "+ 1 CORAÇÃO"
+
+[connection signal="pressed" from="Central/Conteudo/Ataque" to="." method="_on_ataque_pressed"]
+[connection signal="pressed" from="Central/Conteudo/Coracao" to="." method="_on_meio_coracao_pressed"]

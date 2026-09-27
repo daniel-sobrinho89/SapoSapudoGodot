@@ -1,0 +1,26 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/health_pickup.gd" id="1_health_pickup"]
+[ext_resource type="Texture2D" path="res://assets/UI/heart_health_blue_horizontal.png" id="2_heart"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_HeartFrame1"]
+atlas = ExtResource("2_heart")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_HeartPickup"]
+radius = 22.0
+
+[node name="HealthPickup" type="Area2D"]
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+monitorable = true
+script = ExtResource("1_health_pickup")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_HeartFrame1")
+scale = Vector2(2, 2)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_HeartPickup")

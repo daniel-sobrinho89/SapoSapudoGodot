@@ -1,0 +1,735 @@
+[gd_scene format=3 uid="uid://c61nfnbl5s4id"]
+
+[ext_resource type="Script" uid="uid://df0mbw6wgg7a6" path="res://scripts/sapudo.gd" id="1_nnsk1"]
+[ext_resource type="Texture2D" path="res://assets/Sapudo/idle.png" id="2_rwgxs"]
+[ext_resource type="PackedScene" path="res://scenes/goblin.tscn" id="3_goblin_scene"]
+[ext_resource type="Texture2D" path="res://assets/Sapudo/run.png" id="4_sapudo_run"]
+[ext_resource type="Texture2D" path="res://assets/Sapudo/attack1.png" id="5_sapudo_attack"]
+[ext_resource type="Script" path="res://scripts/barra_vida.gd" id="6_barra_vida"]
+[ext_resource type="Texture2D" path="res://assets/Particle/dust1.png" id="7_poeira"]
+[ext_resource type="Texture2D" path="res://assets/Decoration/bones_3.png" id="8_ossos"]
+[ext_resource type="Texture2D" path="res://assets/Sapudo/guard.png" id="9_sapudo_guard"]
+[ext_resource type="Texture2D" path="res://assets/Decoration/Trees/tree_1.png" id="10_tree_1"]
+[ext_resource type="Texture2D" path="res://assets/Decoration/Trees/tree_2.png" id="11_tree_2"]
+[ext_resource type="Texture2D" path="res://assets/Decoration/Trees/tree_3.png" id="12_tree_3"]
+[ext_resource type="PackedScene" path="res://scenes/health_pickup.tscn" id="13_health_pickup"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="14_world"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tree_1"]
+atlas = ExtResource("10_tree_1")
+region = Rect2(0, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tree_2"]
+atlas = ExtResource("11_tree_2")
+region = Rect2(0, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tree_3"]
+atlas = ExtResource("12_tree_3")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wyf3"]
+atlas = ExtResource("2_rwgxs")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0juu"]
+atlas = ExtResource("2_rwgxs")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71j4m"]
+atlas = ExtResource("2_rwgxs")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfnet"]
+atlas = ExtResource("2_rwgxs")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7141"]
+atlas = ExtResource("2_rwgxs")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mrxx"]
+atlas = ExtResource("2_rwgxs")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r4gi"]
+atlas = ExtResource("2_rwgxs")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7kh3"]
+atlas = ExtResource("2_rwgxs")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_run_0"]
+atlas = ExtResource("4_sapudo_run")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_run_1"]
+atlas = ExtResource("4_sapudo_run")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_run_2"]
+atlas = ExtResource("4_sapudo_run")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_run_3"]
+atlas = ExtResource("4_sapudo_run")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_run_4"]
+atlas = ExtResource("4_sapudo_run")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_run_5"]
+atlas = ExtResource("4_sapudo_run")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_attack_0"]
+atlas = ExtResource("5_sapudo_attack")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_attack_1"]
+atlas = ExtResource("5_sapudo_attack")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_attack_2"]
+atlas = ExtResource("5_sapudo_attack")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_attack_3"]
+atlas = ExtResource("5_sapudo_attack")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_guard_0"]
+atlas = ExtResource("9_sapudo_guard")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_guard_1"]
+atlas = ExtResource("9_sapudo_guard")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_guard_2"]
+atlas = ExtResource("9_sapudo_guard")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_guard_3"]
+atlas = ExtResource("9_sapudo_guard")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_guard_4"]
+atlas = ExtResource("9_sapudo_guard")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapudo_guard_5"]
+atlas = ExtResource("9_sapudo_guard")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_or765"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wyf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0juu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71j4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfnet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7141")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mrxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r4gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7kh3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_run_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_run_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_run_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_run_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_run_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_run_5")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_attack_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_attack_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_attack_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_attack_3")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_guard_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_guard_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_guard_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_guard_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_guard_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapudo_guard_5")
+}],
+"loop": true,
+"name": &"guard",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeira_0"]
+atlas = ExtResource("7_poeira")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeira_1"]
+atlas = ExtResource("7_poeira")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeira_2"]
+atlas = ExtResource("7_poeira")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeira_3"]
+atlas = ExtResource("7_poeira")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeira_4"]
+atlas = ExtResource("7_poeira")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeira_5"]
+atlas = ExtResource("7_poeira")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeira_6"]
+atlas = ExtResource("7_poeira")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeira_7"]
+atlas = ExtResource("7_poeira")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_poeira"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeira_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeira_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeira_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeira_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeira_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeira_5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeira_6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeira_7")
+}],
+"loop": false,
+"name": &"desaparecer",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_Sapudo"]
+radius = 28.0
+height = 76.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_WallH"]
+size = Vector2(1600, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_WallV"]
+size = Vector2(40, 1200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_TreeTrunk"]
+size = Vector2(24, 28)
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("14_world")
+
+[node name="Background" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 1600, 0, 1600, 1200, 0, 1200)
+color = Color(0.11, 0.15, 0.12, 1)
+
+[node name="Floor" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 40, 1600, 40, 1600, 1180, 0, 1180)
+color = Color(0.16, 0.25, 0.16, 1)
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(800, 20)
+
+[node name="Visual" type="Polygon2D" parent="TopWall"]
+polygon = PackedVector2Array(-800, -20, 800, -20, 800, 20, -800, 20)
+color = Color(0.34, 0.23, 0.14, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+shape = SubResource("RectangleShape2D_WallH")
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(800, 1180)
+
+[node name="Visual" type="Polygon2D" parent="BottomWall"]
+polygon = PackedVector2Array(-800, -20, 800, -20, 800, 20, -800, 20)
+color = Color(0.34, 0.23, 0.14, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+shape = SubResource("RectangleShape2D_WallH")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(20, 600)
+
+[node name="Visual" type="Polygon2D" parent="LeftWall"]
+polygon = PackedVector2Array(-20, -580, 20, -580, 20, 580, -20, 580)
+color = Color(0.34, 0.23, 0.14, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("RectangleShape2D_WallV")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1580, 600)
+
+[node name="Visual" type="Polygon2D" parent="RightWall"]
+polygon = PackedVector2Array(-20, -580, 20, -580, 20, 580, -20, 580)
+color = Color(0.34, 0.23, 0.14, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("RectangleShape2D_WallV")
+
+[node name="ObstacleVertical" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(250, 350)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleVertical"]
+texture = SubResource("AtlasTexture_tree_1")
+position = Vector2(0, -101.7)
+scale = Vector2(0.9, 0.9)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleVertical"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ObstacleHorizontal" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(560, 430)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleHorizontal"]
+texture = SubResource("AtlasTexture_tree_2")
+position = Vector2(0, -87.12)
+scale = Vector2(0.72, 0.72)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleHorizontal"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ObstacleSmall" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(600, 190)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSmall"]
+texture = SubResource("AtlasTexture_tree_3")
+position = Vector2(0, -74)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleSmall"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+
+[node name="ForestTree01" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(330, 350)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree01"]
+texture = SubResource("AtlasTexture_tree_1")
+position = Vector2(0, -101.7)
+scale = Vector2(0.9, 0.9)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree01"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree02" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(420, 350)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree02"]
+texture = SubResource("AtlasTexture_tree_2")
+position = Vector2(0, -87.12)
+scale = Vector2(0.72, 0.72)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree02"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree03" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(780, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree03"]
+texture = SubResource("AtlasTexture_tree_3")
+position = Vector2(0, -74)
+scale = Vector2(1, 1)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree03"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree04" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(780, 420)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree04"]
+texture = SubResource("AtlasTexture_tree_1")
+position = Vector2(0, -101.7)
+scale = Vector2(0.9, 0.9)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree04"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree05" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(780, 520)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree05"]
+texture = SubResource("AtlasTexture_tree_2")
+position = Vector2(0, -87.12)
+scale = Vector2(0.72, 0.72)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree05"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree06" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1050, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree06"]
+texture = SubResource("AtlasTexture_tree_3")
+position = Vector2(0, -74)
+scale = Vector2(1, 1)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree06"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree07" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1150, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree07"]
+texture = SubResource("AtlasTexture_tree_1")
+position = Vector2(0, -101.7)
+scale = Vector2(0.9, 0.9)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree07"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree08" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1250, 250)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree08"]
+texture = SubResource("AtlasTexture_tree_2")
+position = Vector2(0, -87.12)
+scale = Vector2(0.72, 0.72)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree08"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree09" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1050, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree09"]
+texture = SubResource("AtlasTexture_tree_3")
+position = Vector2(0, -74)
+scale = Vector2(1, 1)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree09"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree10" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1050, 750)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree10"]
+texture = SubResource("AtlasTexture_tree_1")
+position = Vector2(0, -101.7)
+scale = Vector2(0.9, 0.9)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree10"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree11" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1050, 850)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree11"]
+texture = SubResource("AtlasTexture_tree_2")
+position = Vector2(0, -87.12)
+scale = Vector2(0.72, 0.72)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree11"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree12" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1300, 700)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree12"]
+texture = SubResource("AtlasTexture_tree_3")
+position = Vector2(0, -74)
+scale = Vector2(1, 1)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree12"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree13" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1400, 700)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree13"]
+texture = SubResource("AtlasTexture_tree_1")
+position = Vector2(0, -101.7)
+scale = Vector2(0.9, 0.9)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree13"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree14" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(1300, 900)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree14"]
+texture = SubResource("AtlasTexture_tree_2")
+position = Vector2(0, -87.12)
+scale = Vector2(0.72, 0.72)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree14"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree15" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(500, 850)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree15"]
+texture = SubResource("AtlasTexture_tree_3")
+position = Vector2(0, -74)
+scale = Vector2(1, 1)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree15"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree16" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(600, 850)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree16"]
+texture = SubResource("AtlasTexture_tree_1")
+position = Vector2(0, -101.7)
+scale = Vector2(0.9, 0.9)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree16"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree17" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(700, 850)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree17"]
+texture = SubResource("AtlasTexture_tree_2")
+position = Vector2(0, -87.12)
+scale = Vector2(0.72, 0.72)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree17"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="ForestTree18" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+position = Vector2(500, 1000)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestTree18"]
+texture = SubResource("AtlasTexture_tree_3")
+position = Vector2(0, -74)
+scale = Vector2(1, 1)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestTree18"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_TreeTrunk")
+
+[node name="Goblin" parent="." instance=ExtResource("3_goblin_scene")]
+position = Vector2(640, 300)
+
+[node name="Goblin2" parent="." instance=ExtResource("3_goblin_scene")]
+position = Vector2(1200, 850)
+
+[node name="HealthPickup" parent="." instance=ExtResource("13_health_pickup")]
+position = Vector2(820, 700)
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 520.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 18
+text = "Mover: WASD ou setas | Entre na área de um Goblin e ele irá persegui-lo"
+
+[node name="Sapudo" type="CharacterBody2D" parent="." groups=["sapudo"]]
+position = Vector2(80, 300)
+y_sort_origin = 40
+motion_mode = 1
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("1_nnsk1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sapudo"]
+sprite_frames = SubResource("SpriteFrames_or765")
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="Poeira" type="AnimatedSprite2D" parent="Sapudo"]
+sprite_frames = SubResource("SpriteFrames_poeira")
+animation = &"desaparecer"
+frame = 0
+frame_progress = 0.0
+scale = Vector2(1.5, 1.5)
+visible = false
+
+[node name="Ossos" type="Sprite2D" parent="Sapudo"]
+texture = ExtResource("8_ossos")
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sapudo"]
+shape = SubResource("CapsuleShape2D_Sapudo")
+[node name="Camera2D" type="Camera2D" parent="Sapudo"]
+enabled = true
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 1200
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="BarraVida" type="HBoxContainer" parent="HUD"]
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 168.0
+offset_bottom = 96.0
+theme_override_constants/separation = 4
+script = ExtResource("6_barra_vida")

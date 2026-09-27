@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemy_health_bar.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/UI/small_bar_base.png" id="2_base"]
+[ext_resource type="Texture2D" path="res://assets/UI/small_bar_fill.png" id="3_fill"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_BaseLeft"]
+atlas = ExtResource("2_base")
+region = Rect2(49, 22, 15, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_BaseCenter"]
+atlas = ExtResource("2_base")
+region = Rect2(128, 22, 64, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_BaseRight"]
+atlas = ExtResource("2_base")
+region = Rect2(256, 22, 15, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_Fill"]
+atlas = ExtResource("3_fill")
+region = Rect2(0, 30, 64, 3)
+
+[node name="EnemyHealthBar" type="Node2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_script")
+
+[node name="BaseEsquerda" type="TextureRect" parent="."]
+offset_left = -47.0
+offset_right = -32.0
+offset_bottom = 19.0
+texture = SubResource("AtlasTexture_BaseLeft")
+expand_mode = 1
+stretch_mode = 0
+mouse_filter = 2
+texture_filter = 1
+
+[node name="BaseCentro" type="TextureRect" parent="."]
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 19.0
+texture = SubResource("AtlasTexture_BaseCenter")
+expand_mode = 1
+stretch_mode = 0
+mouse_filter = 2
+texture_filter = 1
+
+[node name="BaseDireita" type="TextureRect" parent="."]
+offset_left = 32.0
+offset_right = 47.0
+offset_bottom = 19.0
+texture = SubResource("AtlasTexture_BaseRight")
+expand_mode = 1
+stretch_mode = 0
+mouse_filter = 2
+texture_filter = 1
+
+[node name="Preenchimento" type="TextureRect" parent="."]
+offset_left = -32.0
+offset_right = 32.0
+offset_top = 8.0
+offset_bottom = 11.0
+texture = SubResource("AtlasTexture_Fill")
+expand_mode = 1
+stretch_mode = 0
+mouse_filter = 2
+texture_filter = 1
+
+[node name="Temporizador" type="Timer" parent="."]
+one_shot = true
